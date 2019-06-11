@@ -1,6 +1,8 @@
 import assert from 'assert'
 import enums from './enums'
 
+export const IPP_URL = 'http://cups.home.delta.sh'
+
 const ATTRIBUTES_TAG = 0x01
 const JOB_ATTRIBUTES_TAG = 0x02
 const END_OF_ATTRIBUTES_TAG = 0x03
@@ -312,7 +314,7 @@ export async function ippRequest(uri, operation, data) {
 	const buffer = await fetch(uri, {
 		method: 'POST',
 		headers: {
-			'content-type': 'application/ipp',
+			'Content-Type': 'application/ipp',
 			'Authorization': 'Basic cm9vdDpyb290'
 		},
 		body: serialize({

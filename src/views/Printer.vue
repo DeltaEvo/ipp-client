@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import { ippRequest, TAG_TYPE_URI, TAG_TYPE_KEYWORD } from "@/ipp"
+import { ippRequest, TAG_TYPE_URI, TAG_TYPE_KEYWORD, IPP_URL } from "@/ipp"
 import { Polar, Pie } from 'laue'
 
 export default {
@@ -107,7 +107,7 @@ export default {
 
 	methods: {
 		async viewDocument(job) {
-			const res = await ippRequest('/ipp', 'CUPS-Get-Document', {
+			const res = await ippRequest(IPP_URL, 'CUPS-Get-Document', {
 				attributes: {
 					'attributes-charset': { type: 71, value: 'utf-8' },
 					'attributes-natural-language': { type: 72, value: 'en' },
@@ -119,7 +119,7 @@ export default {
 	},
 
 	async mounted() {
-		const { printerAttributes } = await ippRequest('/ipp', 'Get-Printer-Attributes', {
+		const { printerAttributes } = await ippRequest(IPP_URL, 'Get-Printer-Attributes', {
 			attributes: {
 				'attributes-charset': { type: 71, value: 'utf-8' },
 				'attributes-natural-language': { type: 72, value: 'en' },
@@ -175,7 +175,7 @@ export default {
 
 		if (supportedOps.includes("Get-Jobs")) {
 
-			const { jobAttributes } = await ippRequest('/ipp', 'Get-Jobs', {
+			const { jobAttributes } = await ippRequest(IPP_URL, 'Get-Jobs', {
 				attributes: {
 					'attributes-charset': { type: 71, value: 'utf-8' },
 					'attributes-natural-language': { type: 72, value: 'en' },

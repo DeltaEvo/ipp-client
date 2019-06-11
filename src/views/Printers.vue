@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { ippRequest } from "@/ipp"
+import { ippRequest, IPP_URL } from "@/ipp"
 export default {
 	data() {
 		return {
@@ -22,7 +22,7 @@ export default {
 		}
 	},
 	async mounted() {
-		const { printerAttributes } = await ippRequest('/ipp', 'CUPS-Get-Printers', {
+		const { printerAttributes } = await ippRequest(IPP_URL, 'CUPS-Get-Printers', {
 			attributes: {
 				'attributes-charset': { type: 71, value: 'utf-8' },
 				'attributes-natural-language': { type: 72, value: 'en' }
