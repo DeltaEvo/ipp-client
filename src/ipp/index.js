@@ -64,7 +64,7 @@ function deserialize(buffer, request) {
 			else if (tag == PRINTER_ATTRIBUTES_TAG) {
 				if ("printerAttributes" in groups) {
 					if (!Array.isArray(groups.printerAttributes))
-						groups.printerAttributes = [groups.printetAttributes]
+						groups.printerAttributes = [groups.printerAttributes]
 					groups.printerAttributes.push(attributes = {})
 				} else
 					groups.printerAttributes = attributes = {}
