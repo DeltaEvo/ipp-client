@@ -1,7 +1,7 @@
 import assert from 'assert'
 import enums from './enums'
 
-export const IPP_URL = 'http://cups.home.delta.sh'
+export const IPP_URL = 'https://cups.home.delta.sh'
 
 const ATTRIBUTES_TAG = 0x01
 const JOB_ATTRIBUTES_TAG = 0x02
